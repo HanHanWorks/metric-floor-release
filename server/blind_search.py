@@ -24,6 +24,7 @@ from __future__ import print_function
 import argparse
 import glob
 import json
+import re
 import os
 import sys
 
@@ -37,9 +38,12 @@ sys.path.insert(0, os.path.join(REPO, "src", "loop"))
 from exp_core import load_station_data, daily_metrics  # noqa: E402
 
 
-def gain(df, pred, scale):
-    m = daily_metrics(df, pred, scale)
-    return 100.0 * (m.acc.mean() - daily_metrics(df, df.PP.values, scale).acc.mean())
+RUN_PATTERN = r"^Y%d_(nomem|mem|full|none|regime)_s\d+$"
+
+
+def gain(df, pred, scale, base_acc):
+    """Change in the assessment score, in points. daily_metrics returns percent."""
+    return float(daily_metrics(df, pred, scale).acc.mean() - base_acc)
 
 
 def main():
@@ -60,8 +64,8 @@ def main():
     runs = []
     for fp in sorted(glob.glob(os.path.join(REPO, "data", "runs", "code_*.py"))):
         run = os.path.basename(fp)[len("code_"):-len(".py")]
-        if "win" in run or str(a.year) not in run:
-            continue
+        if not re.match(RUN_PATTERN % a.year, run):
+            continue          # windowed, holdout and other campaigns are excluded
         runs.append(run)
 
     rows = []
@@ -71,15 +75,29 @@ def main():
                                      min_days=min_days)
         scale = dict((f, float(np.abs(np.diff(d.PM.values)).mean()))
                      for f, d in stations.items())
+
+        # per-farm sweep: an upper bound, one constant per farm
+        per_farm = {}
         for fid, df in stations.items():
             base = df.PP.values
-            sweep = np.array([gain(df, k * base, scale[fid]) for k in grid])
-            draw = np.array([gain(df, k * base, scale[fid])
-                             for k in rng.uniform(lo, hi, a.draws)])
+            base_acc = float(daily_metrics(df, base, scale[fid]).acc.mean())
+            per_farm[fid] = (np.array([gain(df, k * base, scale[fid], base_acc)
+                                       for k in grid]),
+                             np.array([gain(df, k * base, scale[fid], base_acc)
+                                       for k in rng.uniform(lo, hi, a.draws)]))
+
+        # one constant for the run: the pipeline is portable, so the honest
+        # comparison with the loop shares a single k across the four farms
+        mean_curve = np.mean([v[0] for v in per_farm.values()], axis=0)
+        k_shared = float(grid[mean_curve.argmax()])
+
+        for fid, (sweep, draw) in per_farm.items():
             rows.append(dict(run=run, year=a.year, station=fid,
                              k_best_grid=float(grid[sweep.argmax()]),
                              gain_grid=float(sweep.max()),
-                             gain_random=float(draw.max())))
+                             gain_random=float(draw.max()),
+                             k_shared=k_shared,
+                             gain_shared=float(sweep[grid == k_shared][0])))
     out = pd.DataFrame(rows)
     os.makedirs(a.out, exist_ok=True)
     path = os.path.join(a.out, "blind_%d.csv" % a.year)
@@ -89,14 +107,18 @@ def main():
     print("grid best k: median %.3f, interquartile %.3f-%.3f"
           % (out.k_best_grid.median(),
              out.k_best_grid.quantile(.25), out.k_best_grid.quantile(.75)))
-    print("gain from one constant, grid search:    %+.3f points" % out.gain_grid.mean())
-    print("gain from one constant, random search:  %+.3f points" % out.gain_random.mean())
+    print("gain, one constant per farm (upper bound): %+.3f points" % out.gain_grid.mean())
+    print("gain, one random draw per farm:            %+.3f points" % out.gain_random.mean())
+    print("gain, ONE constant shared by each run:     %+.3f points (k median %.3f)"
+          % (out.gain_shared.mean(), out.k_shared.median()))
     print("compare with the loop's own gain on the same pairs (Table 6).")
     with open(os.path.join(a.out, "blind_%d.json" % a.year), "w") as fh:
         json.dump(dict(n=int(len(out)), runs=int(out.run.nunique()),
                        k_median=float(out.k_best_grid.median()),
                        gain_grid=float(out.gain_grid.mean()),
-                       gain_random=float(out.gain_random.mean())), fh, indent=2)
+                       gain_random=float(out.gain_random.mean()),
+                       gain_shared=float(out.gain_shared.mean()),
+                       k_shared_median=float(out.k_shared.median())), fh, indent=2)
     print("wrote %s" % path)
 
 

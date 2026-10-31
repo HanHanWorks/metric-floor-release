@@ -5,7 +5,9 @@ the metered and issued-forecast series that are withheld. They are here as
 runnable protocols rather than as prose, so that a reader with access---or an
 auditor---can execute exactly what the paper promises.
 
-None of the three was run as part of this release, and none is covered by CI.
+None of the five is covered by CI, because each needs the archive. They were run on
+the compute node for the revision; the numbers they produced are the ones reported
+in Section 2.3, Equation (3), Table 8 and Section 4.7 of the manuscript.
 They compile and import against the released loop code, but their only input is
 the archive. Set `WIND_DATA_ROOT` before using them.
 
@@ -13,7 +15,9 @@ the archive. Set `WIND_DATA_ROOT` before using them.
 |---|---|---|
 | `decompose_floor.py` | How much of the change in the score is attributable to each region? | `decomp_<year>.csv`, per run × farm: total change, the two contributions, and a check that they sum identically |
 | `reconcile_audit.py` | Which combination of forecast source, power convention and capacity vintage reproduces the operator's annual table? | `recon_<year>.csv`, one row per farm × variant, with the distance from the official value |
-| `blind_search.py` | Can a structure-blind optimiser---one multiplicative constant, chosen by grid or at random---recover the loop's gain? | `blind_<year>.csv`, per run × farm: the best constant, the gain from it, and the gain from a random draw |
+| `blind_search.py` | Can a structure-blind optimiser---one multiplicative constant, chosen by grid or at random---recover the loop's gain? | `blind_<year>.csv`, per run × farm: the best constant, the gain from it, the gain from a random draw, and the gain from one constant shared by the run |
+| `reconcile_archive.py` | How far is our recomputation from the operator's annual table, fleet-wide? | `recon_archive.csv` + `recon_summary.json`: per farm and year, median absolute difference, share within 1 and 3 points, correlation |
+| `caliber_sources.py` | Does the second forecast series in the archive reconcile better? | `caliber_sources_<year>.csv/.json`: MAE, bias, correlation and coverage per `data_source` |
 
 ## Why the decomposition is not in the paper
 
@@ -51,6 +55,7 @@ are skipped and the output says so.
 
 The full counterfactual---re-running the loop against a score without a floor---
 needs the proposer and the API as well as the data, so it is not scripted here.
+It is the one experiment the paper lists as outstanding.
 `src/loop/` contains everything needed to run it: point `--accept` and the
 scoring function at a floor-free rule and the same apparatus produces the
 counterfactual trace.

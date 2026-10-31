@@ -42,6 +42,7 @@ from __future__ import print_function
 
 import argparse
 import glob
+import re
 import json
 import os
 import sys
@@ -54,6 +55,8 @@ REPO = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(REPO, "src", "loop"))
 
 from exp_core import load_station_data  # noqa: E402
+
+RUN_PATTERN = r"^Y%d_(nomem|mem|full|none|regime)_s\d+$"
 
 
 def make_view(df):
@@ -119,7 +122,7 @@ def decompose(run, year, stations, code):
         per_pair.append(dict(
             run=run, year=year, station=fid, n_days=len(m),
             dacc=100 * dacc, c_floor=100 * cF, c_prop=100 * cP,
-            share_floor=cF / (cF + cP) if (cF + cP) else np.nan,
+            share_floor=cF / (abs(cF) + abs(cP)) if (cF or cP) else np.nan,
             identity_error=100 * (cF + cP - dacc)))
     return pd.DataFrame(per_pair)
 
@@ -130,6 +133,10 @@ def main():
     ap.add_argument("--tag", default="", help="restrict to runs containing this tag")
     ap.add_argument("--tolerance", type=float, default=0.0,
                     help="farm inclusion threshold in days (default 200, 80 for 2025)")
+    ap.add_argument("--all-farms", action="store_true",
+                    help="evaluate every eligible farm in the year, not only the "
+                         "four a run searched; this reproduces the 1,184-pair sample "
+                         "of Table 6")
     ap.add_argument("--out", default="results/decomp")
     a = ap.parse_args()
 
@@ -137,16 +144,24 @@ def main():
     if a.tolerance:
         min_days = int(a.tolerance)
 
+    if a.all_farms:
+        # one load per year: the farm set does not depend on the run, only the
+        # number of farms does, and n_station above the fleet size returns all.
+        stations = load_station_data(year=a.year, n_station=999, seed=0,
+                                     min_days=min_days)
+        print("all-farms mode: %d farms in %d" % (len(stations), a.year))
+
     frames = []
     for fp in sorted(glob.glob(os.path.join(REPO, "data", "runs", "code_*.py"))):
         run = os.path.basename(fp)[len("code_"):-len(".py")]
-        if "win" in run or str(a.year) not in run:
-            continue
+        if not re.match(RUN_PATTERN % a.year, run):
+            continue          # windowed, holdout and other campaigns are excluded
         if a.tag and a.tag not in run:
             continue
-        seed = int(run.split("_s")[-1])
-        stations = load_station_data(year=a.year, n_station=4, seed=seed,
-                                     min_days=min_days)
+        if not a.all_farms:
+            seed = int(run.split("_s")[-1])
+            stations = load_station_data(year=a.year, n_station=4, seed=seed,
+                                         min_days=min_days)
         code = open(fp, encoding="utf-8", errors="ignore").read()
         frames.append(decompose(run, a.year, stations, code))
 
@@ -160,7 +175,7 @@ def main():
           % out.identity_error.abs().max())
     print("mean dACC  %+.3f  =  floor %+.3f  +  proportional %+.3f"
           % (out.dacc.mean(), out.c_floor.mean(), out.c_prop.mean()))
-    print("mean share of the change attributable to the floor regime: %.1f%%"
+    print("signed share of the gross movement inside the floor regime: %.1f%%"
           % (100 * out.share_floor.mean()))
     print("wrote %s" % path)
     with open(os.path.join(a.out, "decomp_%d.json" % a.year), "w") as fh:
