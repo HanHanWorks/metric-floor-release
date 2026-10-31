@@ -17,7 +17,7 @@
   },
   "access_right": "open",
   "language": "eng",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publication_date": "2026-10-31",
   "keywords": [
     "wind power forecasting",
@@ -32,7 +32,7 @@
   "related_identifiers": [
     {
       "relation": "isIdenticalTo",
-      "identifier": "https://github.com/HanHanWorks/score-not-forecast",
+      "identifier": "https://github.com/HanHanWorks/metric-floor-release",
       "scheme": "url"
     }
   ]
