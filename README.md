@@ -22,10 +22,11 @@ into the numbers, tables and figures in the paper.
 | `make figures` | regenerates Figures 2–6; the PDFs are **content-identical** to the ones in the manuscript |
 | `python src/analysis/trace_tables.py` | rebuilds Table 4 and Table 9 from the raw run artefacts (metadata, per-candidate steps, final code) |
 | `python src/analysis/c19_station_ext.py` … `c22_dm.py` | rebuild the four farm-level tables |
+| `python src/analysis/revision_checks.py` | the checks added in revision: farm reuse, two-way clustered inference, counting flow |
 
-Three printed values differ from what the released tables give, all by 0.01.
-They are listed in [`docs/KNOWN_DISCREPANCIES.md`](docs/KNOWN_DISCREPANCIES.md)
-and flagged as `diff` in the verification output rather than silently tolerated.
+The first submission printed three values that the tables do not support, all
+by 0.01. They are corrected in the current manuscript and recorded in
+[`docs/KNOWN_DISCREPANCIES.md`](docs/KNOWN_DISCREPANCIES.md).
 
 ## What does not reproduce
 

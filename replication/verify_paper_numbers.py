@@ -157,10 +157,10 @@ def main():
 
     # --- Table 6 / Section 4.3 -------------------------------------------
     for year, unseen, seen, err in ((2023, 1.11, 1.14, 0.88), (2024, 0.79, 0.77, 0.65),
-                                    (2025, 0.87, 1.11, 1.36)):
+                                    (2025, 0.87, 1.10, 1.36)):
         y = c19["by_year"][year]
         c.close("Table 6 %d unseen dACC" % year, y["unseen"]["dacc"], unseen, "Table 6")
-        c.known("Table 6 %d seen dACC" % year, y["seen"]["dacc"], seen, "Table 6")
+        c.close("Table 6 %d seen dACC" % year, y["seen"]["dacc"], seen, "Table 6")
         c.close("Table 6 %d unseen error %%" % year, y["unseen"]["dmase_pct"], err,
                 "Table 6")
         c.exact("Table 6 %d unseen n" % year, y["unseen"]["n"], {2023: 80, 2024: 240, 2025: 640}[year],
@@ -178,7 +178,7 @@ def main():
     c.close("Table 5 farms accept SD", st["d_accept_sd"], 1.23, "Table 5")
     c.close("Table 5 farms holdout", st["d_holdout_mean"], 1.16, "Table 5")
     c.close("Table 5 farms holdout SD", st["d_holdout_sd"], 1.49, "Table 5")
-    c.known("Table 5 farms ratio", st["ratio"], 0.53, "Table 5")
+    c.close("Table 5 farms ratio", st["ratio"], 0.52, "Table 5")
     c.close("Table 5 farms t", st["t"], 3.12, "Table 5", 1e-2)
     c.order("Table 5 farms p", st["p"], 0.0070, "Table 5")
     c.order("Table 5 farms Wilcoxon", st["wilcoxon_p"], 0.0092, "Section 4.2")
@@ -203,7 +203,7 @@ def main():
         c.close("Table 8 %d proportional" % year, y["proportional"], prop, "Table 8")
         c.close("Table 8 %d share below floor %%" % year, 100 * y["share_floor"],
                 {2023: 61.1, 2024: 60.7, 2025: 56.4}[year], "Section 4.5", 0.1)
-    c.known("Table 8 holdout floor", c21["holdout"]["floor"], 5.38, "Table 8")
+    c.close("Table 8 holdout floor", c21["holdout"]["floor"], 5.37, "Table 8")
     c.close("Table 8 holdout proportional", c21["holdout"]["proportional"], -2.10,
             "Table 8")
     c.close("within-run rho across regimes", c21["within_run"]["rho"], -0.54,
