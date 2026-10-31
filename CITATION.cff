@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this code or these data, please cite the article and this archive."
+title: "Optimising the metric, not the forecast: code and data release"
+abstract: >-
+  Final pipelines, per-iteration traces and farm-level result tables from three
+  years of an automated post-processing loop on a provincial Chinese wind fleet
+  (106 runs, 5,360 iterations, 1,202 accepted code edits), with the scripts that
+  reproduce every table and figure of the accompanying manuscript.
+type: software
+license: MIT
+repository-code: "https://github.com/REPLACE-WITH-ACCOUNT/metric-floor-release"
+version: "1.0.0"
+date-released: "2026-10-31"
+
+# EDIT BEFORE RELEASE: replace the placeholder author block with the manuscript's
+# author list, in the same order, and add the article DOI under `references`.
+authors:
+  - family-names: "Author"
+    given-names: "First"
+    affiliation: "School of Computer Science, Guangxi University"
+  - family-names: "Author"
+    given-names: "Second"
+    affiliation: "School of Computer Science, Guangxi University"
+  - family-names: "Author"
+    given-names: "Third"
+    affiliation: "Provincial Power Dispatch Centre"
+
+keywords:
+  - wind power forecasting
+  - forecast evaluation
+  - accuracy measures
+  - specification gaming
+  - regulatory metrics
+  - metric exploitation
+  - Goodhart's law
+  - Diebold-Mariano
+
+references:
+  - type: article
+    title: "Optimising the metric, not the forecast: how an automated loop exploits a grid-code accuracy score"
+    year: 2026
+    notes: "Manuscript; replace with the published version and DOI when available."

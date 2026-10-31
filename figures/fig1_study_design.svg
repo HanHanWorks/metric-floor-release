@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180mm" height="118mm" viewBox="0 0 1800 1180" role="img" aria-labelledby="title desc">
+<title id="title">Study design: metric-optimising post-processing for wind forecasts</title>
+<desc id="desc">A settlement chain, automated code-search loop, three-year corpus, denominator-floor geometry, and four robustness tests.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 22 22" refX="19" refY="11" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto"><path d="M 4 4 L 19 11 L 4 18" fill="none" stroke="#233746" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <marker id="arrowRust" viewBox="0 0 22 22" refX="19" refY="11" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto"><path d="M 4 4 L 19 11 L 4 18" fill="none" stroke="#B65337" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; fill: #203443; }
+    .panel { fill: #FFFFFF; stroke: #C9D2D8; stroke-width: 2; }
+    .section { font-size: 31px; font-weight: 700; letter-spacing: .4px; }
+    .label { font-size: 29px; font-weight: 600; }
+    .body { font-size: 25px; }
+    .small { font-size: 22px; fill: #526675; }
+    .tiny { font-size: 20px; fill: #526675; }
+    .muted { fill: #667985; }
+    .rust { fill: #A8472E; }
+    .rule { stroke: #233746; stroke-width: 2.6; fill: none; stroke-linecap: round; marker-end: url(#arrow); }
+    .soft-rule { stroke: #526675; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+    .feedback { stroke: #B65337; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 6 6; marker-end: url(#arrowRust); }
+  </style>
+</defs>
+<rect width="1800" height="1180" fill="#FFFFFF"/>
+
+<!-- a | Operational settlement chain -->
+<rect class="panel" x="24" y="24" width="1752" height="258" rx="12"/>
+<text class="section" x="52" y="68"><tspan class="rust">a</tspan><tspan dx="16">Settlement chain</tspan></text>
+<text class="small" x="1740" y="67" text-anchor="end">Only the calibration function is editable</text>
+
+<rect x="66" y="111" width="286" height="98" rx="9" fill="#F3F6F7" stroke="#AAB8C0" stroke-width="2"/>
+<text class="label" x="209" y="151" text-anchor="middle">Issued forecast</text>
+<text class="body" x="209" y="185" text-anchor="middle">P<tspan baseline-shift="sub" font-size="19">P</tspan> · 96 × 15-min intervals</text>
+
+<path class="rule" d="M 363 160 H 423"/>
+<rect x="437" y="98" width="398" height="124" rx="12" fill="#FBF2EF" stroke="#B65337" stroke-width="3"/>
+<text class="label rust" x="636" y="145" text-anchor="middle">Post-processing</text>
+<text class="body" x="636" y="181" text-anchor="middle">transform(view) → P̂</text>
+<text class="tiny" x="636" y="207" text-anchor="middle">search can rewrite this function</text>
+
+<path class="rule" d="M 847 160 H 907"/>
+<rect x="921" y="105" width="398" height="110" rx="9" fill="#F3F6F7" stroke="#AAB8C0" stroke-width="2"/>
+<text class="label" x="1120" y="145" text-anchor="middle">Grid-code score</text>
+<text class="body" x="1120" y="182" text-anchor="middle">ACC from max(P<tspan baseline-shift="sub" font-size="19">M</tspan>, 0.2 Cap)</text>
+
+<path class="rule" d="M 1331 160 H 1391"/>
+<rect x="1405" y="111" width="318" height="98" rx="9" fill="#F3F6F7" stroke="#AAB8C0" stroke-width="2"/>
+<text class="label" x="1564" y="151" text-anchor="middle">Settlement</text>
+<text class="body" x="1564" y="185" text-anchor="middle">penalised energy</text>
+
+<rect x="1005" y="232" width="230" height="36" rx="18" fill="#EAF0F3"/>
+<text class="small" x="1120" y="257" text-anchor="middle">metered output P<tspan baseline-shift="sub" font-size="16">M</tspan></text>
+<path class="soft-rule" d="M 1120 230 V 217"/>
+
+<!-- b | Automated search loop -->
+<rect class="panel" x="24" y="302" width="1010" height="334" rx="12"/>
+<text class="section" x="52" y="347"><tspan class="rust">b</tspan><tspan dx="16">Automated search loop</tspan></text>
+<text class="small" x="1000" y="346" text-anchor="end">60 iterations per run</text>
+
+<rect x="66" y="389" width="238" height="98" rx="9" fill="#F3F6F7" stroke="#AAB8C0" stroke-width="2"/>
+<text class="label" x="185" y="427" text-anchor="middle">Forecast view</text>
+<text class="small" x="185" y="459" text-anchor="middle">P<tspan baseline-shift="sub" font-size="16">P</tspan>, Cap, time fields</text>
+
+<rect x="368" y="389" width="250" height="98" rx="9" fill="#F3F6F7" stroke="#AAB8C0" stroke-width="2"/>
+<text class="label" x="493" y="427" text-anchor="middle">Proposer</text>
+<text class="small" x="493" y="459" text-anchor="middle">writes transform()</text>
+
+<rect x="683" y="389" width="288" height="98" rx="9" fill="#F3F6F7" stroke="#AAB8C0" stroke-width="2"/>
+<text class="label" x="827" y="427" text-anchor="middle">Execute &amp; score</text>
+<text class="small" x="827" y="459" text-anchor="middle">candidate on validation farms</text>
+
+<path class="soft-rule" d="M 309 438 H 356"/>
+<path class="soft-rule" d="M 623 438 H 671"/>
+<path class="soft-rule" d="M 827 490 V 544 H 619"/>
+<rect x="373" y="505" width="242" height="80" rx="8" fill="#FBF2EF" stroke="#B65337" stroke-width="2"/>
+<text class="body rust" x="494" y="532" text-anchor="middle">Keep if ΔACC &gt; τ</text>
+<text class="tiny" x="494" y="556" text-anchor="middle">otherwise retain</text>
+<text class="tiny" x="494" y="578" text-anchor="middle">current code</text>
+<path class="feedback" d="M 369 544 H 330 V 438 H 358"/>
+<text class="small" x="72" y="610">One scalar score per iteration; metered output is never shown to the proposer.</text>
+
+<!-- c | Corpus -->
+<rect class="panel" x="1050" y="302" width="726" height="334" rx="12"/>
+<text class="section" x="1078" y="347"><tspan class="rust">c</tspan><tspan dx="16">Three-year corpus</tspan></text>
+
+<line x1="1120" y1="527" x2="1702" y2="527" stroke="#82929C" stroke-width="2"/>
+<rect x="1174" y="429" width="94" height="98" rx="3" fill="#8EA6B2"/>
+<rect x="1361" y="392" width="94" height="135" rx="3" fill="#698897"/>
+<rect x="1548" y="350" width="94" height="177" rx="3" fill="#456F82"/>
+<text class="body" x="1221" y="417" text-anchor="middle">1,280</text>
+<text class="body" x="1408" y="380" text-anchor="middle">1,760</text>
+<text class="body" x="1595" y="338" text-anchor="middle">2,320</text>
+<text class="label" x="1221" y="563" text-anchor="middle">2023</text>
+<text class="label" x="1408" y="563" text-anchor="middle">2024</text>
+<text class="label" x="1595" y="563" text-anchor="middle">2025</text>
+<text class="small" x="1221" y="591" text-anchor="middle">14 farms · 28 runs</text>
+<text class="small" x="1408" y="591" text-anchor="middle">19 farms · 36 runs</text>
+<text class="small" x="1595" y="591" text-anchor="middle">24 farms · 42 runs</text>
+<text class="body" x="1078" y="620"><tspan font-weight="700">106</tspan> runs  ·  <tspan font-weight="700">5,360</tspan> iterations  ·  <tspan font-weight="700">1,202</tspan> accepted edits</text>
+
+<!-- d | Metric geometry -->
+<rect class="panel" x="24" y="656" width="850" height="500" rx="12"/>
+<text class="section" x="52" y="702"><tspan class="rust">d</tspan><tspan dx="16">Where the denominator changes</tspan></text>
+<text class="body" x="52" y="745">d / Cap = max(P<tspan baseline-shift="sub" font-size="19">M</tspan> / Cap, 0.2)</text>
+
+<!-- chart geometry -->
+<rect x="138" y="927" width="92" height="111" fill="#F5E4DE"/>
+<line x1="138" y1="1038" x2="600" y2="1038" stroke="#233746" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="138" y1="1038" x2="138" y2="782" stroke="#233746" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="230" y1="1038" x2="230" y2="927" stroke="#B65337" stroke-width="2" stroke-dasharray="7 7"/>
+<path d="M 139 927 H 230" fill="none" stroke="#B65337" stroke-width="7"/>
+<path d="M 230 927 L 600 789" fill="none" stroke="#456F82" stroke-width="6"/>
+<line x1="138" y1="927" x2="129" y2="927" stroke="#233746" stroke-width="2"/>
+<line x1="138" y1="789" x2="129" y2="789" stroke="#233746" stroke-width="2"/>
+<line x1="230" y1="1038" x2="230" y2="1047" stroke="#233746" stroke-width="2"/>
+<line x1="600" y1="1038" x2="600" y2="1047" stroke="#233746" stroke-width="2"/>
+<text class="small" x="119" y="1045" text-anchor="end">0</text>
+<text class="small" x="119" y="934" text-anchor="end">0.2</text>
+<text class="small" x="119" y="797" text-anchor="end">1.0</text>
+<text class="small rust" x="230" y="1073" text-anchor="middle">0.2</text>
+<text class="small" x="600" y="1073" text-anchor="middle">1.0</text>
+<text class="small" x="406" y="1110" text-anchor="middle">Metered output P<tspan baseline-shift="sub" font-size="16">M</tspan> / Cap</text>
+<text class="small" x="68" y="902" text-anchor="middle" transform="rotate(-90 68 902)">Denominator d / Cap</text>
+
+<rect x="640" y="806" width="204" height="121" rx="9" fill="#FBF2EF" stroke="#D8A99A" stroke-width="2"/>
+<text class="label rust" x="742" y="846" text-anchor="middle">Below floor</text>
+<text class="body" x="742" y="881" text-anchor="middle">fixed d</text>
+<text class="small rust" x="742" y="912" text-anchor="middle">59% of intervals</text>
+<path d="M 638 867 H 614" fill="none" stroke="#B65337" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrowRust)"/>
+<text class="small" x="640" y="968">Relative scaling ends;</text>
+<text class="small" x="640" y="997">score follows distance</text>
+<text class="small" x="640" y="1026">from a fixed target.</text>
+<text class="tiny" x="640" y="1081">Above floor: d = P<tspan baseline-shift="sub" font-size="15">M</tspan></text>
+
+<!-- e | Four complementary tests -->
+<rect class="panel" x="890" y="656" width="886" height="500" rx="12"/>
+<text class="section" x="918" y="702"><tspan class="rust">e</tspan><tspan dx="16">Four tests of the apparent gain</tspan></text>
+<text class="small" x="918" y="741">Change one evaluation dimension at a time</text>
+
+<rect x="920" y="781" width="396" height="151" rx="10" fill="#F5F7F8" stroke="#D5DDE1" stroke-width="2"/>
+<circle cx="956" cy="820" r="20" fill="#B65337"/><text x="956" y="829" text-anchor="middle" font-size="25" font-weight="700" fill="#FFFFFF">1</text>
+<text class="label" x="991" y="829">Subset</text>
+<text class="body" x="946" y="874">Hold out farms or days</text>
+<text class="tiny" x="946" y="901">same metric · different</text>
+<text class="tiny" x="946" y="924">evaluation subset</text>
+
+<rect x="1340" y="781" width="396" height="151" rx="10" fill="#F5F7F8" stroke="#D5DDE1" stroke-width="2"/>
+<circle cx="1376" cy="820" r="20" fill="#B65337"/><text x="1376" y="829" text-anchor="middle" font-size="25" font-weight="700" fill="#FFFFFF">2</text>
+<text class="label" x="1411" y="829">External site</text>
+<text class="body" x="1366" y="874">Apply unchanged code</text>
+<text class="small" x="1366" y="908">farms never used in the search</text>
+
+<rect x="920" y="957" width="396" height="151" rx="10" fill="#F5F7F8" stroke="#D5DDE1" stroke-width="2"/>
+<circle cx="956" cy="996" r="20" fill="#B65337"/><text x="956" y="1005" text-anchor="middle" font-size="25" font-weight="700" fill="#FFFFFF">3</text>
+<text class="label" x="991" y="1005">Independent loss</text>
+<text class="body" x="946" y="1050">Re-score identical forecasts</text>
+<text class="small" x="946" y="1084">capacity-normalised error · no floor</text>
+
+<rect x="1340" y="957" width="396" height="151" rx="10" fill="#F5F7F8" stroke="#D5DDE1" stroke-width="2"/>
+<circle cx="1376" cy="996" r="20" fill="#B65337"/><text x="1376" y="1005" text-anchor="middle" font-size="25" font-weight="700" fill="#FFFFFF">4</text>
+<text class="label" x="1411" y="1005">Regime</text>
+<text class="body" x="1366" y="1050">Split at 0.2 Cap</text>
+<text class="small" x="1366" y="1084">floor-binding vs proportional region</text>
+</svg>

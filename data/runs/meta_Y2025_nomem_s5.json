@@ -1,0 +1,12 @@
+{
+  "run": "Y2025_nomem_s5",
+  "year": 2025,
+  "memory": 0,
+  "seed": 5,
+  "n_iter": 60,
+  "acc_first": 50.59620206936055,
+  "acc_last": 50.76016307516735,
+  "n_accept": 12,
+  "n_pure_rediscovery": 9,
+  "wall_sec": 264.3
+}

@@ -1,0 +1,15 @@
+{
+  "run": "Y2024_win_240925_s3",
+  "year": 2024,
+  "memory": 0,
+  "policy": "win",
+  "start": "2024-09-25",
+  "end": "2024-12-24",
+  "seed": 3,
+  "n_iter": 40,
+  "acc_first": 53.787214885890656,
+  "acc_last": 55.89472846545043,
+  "n_accept": 3,
+  "n_pure_rediscovery": 0,
+  "wall_sec": 143.5
+}

@@ -1,0 +1,25 @@
+# Data licence
+
+The contents of `data/` and the generated figures in `figures/` are released
+under the Creative Commons Attribution 4.0 International licence (CC BY 4.0):
+
+    https://creativecommons.org/licenses/by/4.0/
+
+You are free to share and adapt the material for any purpose, provided you give
+appropriate credit, link to the licence, and indicate whether changes were made.
+
+## Attribution
+
+Cite the manuscript and this archive, as in `CITATION.cff`.
+
+## Scope and exclusions
+
+This licence covers the run artefacts (final pipelines, per-iteration traces,
+run metadata) and the aggregate result tables — that is, the outputs of the
+study. It does not extend to, and cannot extend to, the underlying metered
+output series and issued forecasts, which are the property of the dispatching
+utility, are commercially restricted, and are not distributed here.
+
+The `transform()` functions in `data/runs/code_*.py` were written by a language
+model under the loop's acceptance rule. They are released as research artefacts;
+they are not production code and carry no warranty of any kind.

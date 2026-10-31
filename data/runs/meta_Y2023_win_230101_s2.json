@@ -1,0 +1,15 @@
+{
+  "run": "Y2023_win_230101_s2",
+  "year": 2023,
+  "memory": 0,
+  "policy": "win",
+  "start": "2023-01-01",
+  "end": "2023-04-01",
+  "seed": 2,
+  "n_iter": 40,
+  "acc_first": 49.23018778770181,
+  "acc_last": 49.24484046947677,
+  "n_accept": 7,
+  "n_pure_rediscovery": 6,
+  "wall_sec": 323.7
+}

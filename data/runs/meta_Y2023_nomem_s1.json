@@ -1,0 +1,12 @@
+{
+  "run": "Y2023_nomem_s1",
+  "year": 2023,
+  "memory": 0,
+  "seed": 1,
+  "n_iter": 60,
+  "acc_first": 58.90392659317288,
+  "acc_last": 59.41991903832209,
+  "n_accept": 16,
+  "n_pure_rediscovery": 13,
+  "wall_sec": 376.9
+}

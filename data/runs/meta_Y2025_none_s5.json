@@ -1,0 +1,15 @@
+{
+  "run": "Y2025_none_s5",
+  "year": 2025,
+  "memory": 0,
+  "policy": "none",
+  "start": null,
+  "end": null,
+  "seed": 5,
+  "n_iter": 60,
+  "acc_first": 50.59620206936055,
+  "acc_last": 51.527278832379146,
+  "n_accept": 4,
+  "n_pure_rediscovery": 1,
+  "wall_sec": 271.0
+}

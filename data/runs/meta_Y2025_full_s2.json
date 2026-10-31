@@ -1,0 +1,15 @@
+{
+  "run": "Y2025_full_s2",
+  "year": 2025,
+  "memory": 0,
+  "policy": "full",
+  "start": null,
+  "end": null,
+  "seed": 2,
+  "n_iter": 60,
+  "acc_first": 51.56414922666751,
+  "acc_last": 51.6692889219605,
+  "n_accept": 5,
+  "n_pure_rediscovery": 3,
+  "wall_sec": 224.1
+}

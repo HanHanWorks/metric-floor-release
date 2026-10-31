@@ -1,0 +1,12 @@
+{
+  "run": "Y2024_mem_s3",
+  "year": 2024,
+  "memory": 1,
+  "seed": 3,
+  "n_iter": 60,
+  "acc_first": 62.47888740723339,
+  "acc_last": 63.42320377074488,
+  "n_accept": 16,
+  "n_pure_rediscovery": 11,
+  "wall_sec": 1036.7
+}

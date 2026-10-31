@@ -1,0 +1,12 @@
+{
+  "run": "Y2024_nomem_s5",
+  "year": 2024,
+  "memory": 0,
+  "seed": 5,
+  "n_iter": 60,
+  "acc_first": 64.2833685326838,
+  "acc_last": 64.4354641367761,
+  "n_accept": 7,
+  "n_pure_rediscovery": 5,
+  "wall_sec": 162.8
+}
