@@ -9,7 +9,7 @@ abstract: >-
   and figure of the accompanying manuscript.
 type: software
 license: MIT
-repository-code: "https://github.com/HanHanWorks/score-not-forecast"
+repository-code: "https://github.com/HanHanWorks/metric-floor-release"
 version: "1.0.0"
 date-released: "2026-10-31"
 

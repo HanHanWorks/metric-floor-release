@@ -64,7 +64,7 @@ cross-site transfer are arithmetic.
 ## Quick start
 
 ```bash
-git clone <this repository> && cd score-not-forecast
+git clone https://github.com/HanHanWorks/metric-floor-release.git && cd metric-floor-release
 python -m pip install -r requirements.txt
 
 python replication/verify_paper_numbers.py     # 142 checks, ~10 s

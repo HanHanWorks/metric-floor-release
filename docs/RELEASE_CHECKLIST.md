@@ -9,7 +9,7 @@
    the ORCID fields if desired.
 2. **Decide the repository name** and put it in `CITATION.cff`
    (`repository-code`). The name used throughout these files is
-   `score-not-forecast`.
+   `metric-floor-release`.
 3. **Confirm the licence choice.** Code MIT, data CC BY 4.0 is the split assumed
    here; edit `LICENSE`, `LICENSE-DATA` and `.zenodo.json` together if it changes.
 4. **Re-read `docs/KNOWN_DISCREPANCIES.md`** and decide whether to correct items
@@ -21,7 +21,7 @@
 cd 13_github
 git add -A
 git commit -m "Release v1.0.0: artefacts and analysis code"
-git remote add origin git@github.com:<account>/score-not-forecast.git
+git remote add origin git@github.com:HanHanWorks/metric-floor-release.git
 git push -u origin main
 ```
 
