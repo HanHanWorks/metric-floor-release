@@ -12,9 +12,7 @@
       "affiliation": "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
     }
   ],
-  "license": {
-    "id": "MIT"
-  },
+  "license": "mit",
   "access_right": "open",
   "language": "eng",
   "version": "1.0.2",
