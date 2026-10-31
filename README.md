@@ -37,9 +37,11 @@ and the single-parameter blind search. They ship as runnable protocols in
 
 The **search itself**. Re-running the loop needs the metered output and the
 issued day-to-day forecasts for 14–24 wind farms over three years. Those series
-are commercially restricted and are not distributed; a de-identified sample and
-an application procedure are described in the manuscript's data-availability
-statement. `src/loop/` therefore documents exactly how the loop was run — the
+are **confidential**: owned by the provincial system operator and governed by a
+data-sharing agreement that does not permit redistribution. They are not
+distributed, and no farm-level series can be reconstructed from this archive; a
+de-identified sample and an application procedure are described in the
+manuscript's data-availability statement. `src/loop/` therefore documents exactly how the loop was run — the
 prompt, the sandbox the candidate code executes in, the acceptance rule, the
 twelve-class mechanism extractor — but cannot be executed end to end without
 that data.
