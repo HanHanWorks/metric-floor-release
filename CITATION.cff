@@ -12,18 +12,13 @@ repository-code: "https://github.com/REPLACE-WITH-ACCOUNT/metric-floor-release"
 version: "1.0.0"
 date-released: "2026-10-31"
 
-# EDIT BEFORE RELEASE: replace the placeholder author block with the manuscript's
-# author list, in the same order, and add the article DOI under `references`.
 authors:
-  - family-names: "Author"
-    given-names: "First"
-    affiliation: "School of Computer Science, Guangxi University"
-  - family-names: "Author"
-    given-names: "Second"
-    affiliation: "School of Computer Science, Guangxi University"
-  - family-names: "Author"
-    given-names: "Third"
-    affiliation: "Provincial Power Dispatch Centre"
+  - family-names: "Huang"
+    given-names: "Zihao"
+    affiliation: "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
+  - family-names: "Chen"
+    given-names: "Yan"
+    affiliation: "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
 
 keywords:
   - wind power forecasting

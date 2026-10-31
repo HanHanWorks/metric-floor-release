@@ -2,10 +2,11 @@
 
 ## Before the first push
 
-1. **Fill the author block.** Three places carry a placeholder and must match the
-   manuscript's author list, in order: `.zenodo.json` (`creators`), `CITATION.cff`
-   (`authors`), and `README.md` if you add a citation line. Zenodo reads
-   `.zenodo.json` from the release; a placeholder there becomes permanent metadata.
+1. **Fill the author block.** Done for this release: `.zenodo.json` (`creators`)
+   and `CITATION.cff` (`authors`) carry Huang Zihao and Yan Chen with both
+   affiliations, matching the manuscript. What is still missing is the
+   corresponding author's e-mail in `12_latex/manuscript.tex` (marked TODO) and
+   the ORCID fields if desired.
 2. **Decide the repository name** and put it in `CITATION.cff`
    (`repository-code`). The name used throughout these files is
    `metric-floor-release`.

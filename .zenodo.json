@@ -1,13 +1,20 @@
 {
   "title": "Optimising the metric, not the forecast: code and data release",
   "upload_type": "software",
-  "description": "<p>Final pipelines, per-iteration traces and farm-level result tables from three years of an automated post-processing loop on a provincial Chinese wind fleet: 106 runs, 5,360 iterations and 1,202 accepted code edits. The loop raised the grid-code accuracy score by 1.02 points; the gain survived a change of evaluation subset, a change of site and two holdout designs, but did not survive a change of loss, where capacity-normalised squared error worsened in 64% of runs.</p><p>The archive contains the artefacts of every run (final <code>transform()</code> code, metadata, per-candidate steps, per-iteration traces), the seven result tables behind the manuscript's Tables 2-9, the scripts that turn those tables into every printed number and into Figures 2-6, and the search loop itself for inspection. A verification script re-checks 134 printed values; 134/134 pass, with three 0.01-level rounding differences documented.</p><p>The metered output and issued forecast series are commercially restricted and are not included; a de-identified sample is available from the authors on request.</p>",
+  "description": "<p>Code and data for the manuscript <i>Optimising the metric, not the forecast: how an automated loop exploits a grid-code accuracy score</i>. Three years of an automated post-processing loop on a provincial Chinese wind fleet: 106 runs, 5,360 iterations, 1,202 accepted code edits. The loop raised the grid-code accuracy score by 1.02 points; the gain survived both holdout designs and transfer outside each pipeline's search set, but not a change of loss (capacity-normalised squared error worsened in 64% of runs). Three experiments locate the cause: an exact decomposition attributes +1.44 of the +0.90-point change to intervals inside the floored region and -0.54 to the rest; a single multiplicative constant gains 4.19 points where the loop gained 1.10; and re-running the loop with the floor removed from the objective collapses its gain to 0.05 points.</p><p>The archive contains the artefacts of all 138 runs (106 floored, 32 floor-free), the result tables behind Tables 2-10, the scripts that produce every printed number and Figures 2-6, a verification script that re-checks 134 printed values, and the search loop itself. The metered and forecast series are commercially restricted and are not included; a de-identified sample is available from the corresponding author on request.</p>",
   "creators": [
-    {"name": "Author, First", "affiliation": "School of Computer Science, Guangxi University"},
-    {"name": "Author, Second", "affiliation": "School of Computer Science, Guangxi University"},
-    {"name": "Author, Third", "affiliation": "Provincial Power Dispatch Centre"}
+    {
+      "name": "Huang, Zihao",
+      "affiliation": "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
+    },
+    {
+      "name": "Chen, Yan",
+      "affiliation": "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
+    }
   ],
-  "license": {"id": "MIT"},
+  "license": {
+    "id": "MIT"
+  },
   "access_right": "open",
   "language": "eng",
   "version": "1.0.0",
@@ -28,6 +35,5 @@
       "identifier": "REPLACE-WITH-ARTICLE-DOI",
       "scheme": "doi"
     }
-  ],
-  "notes": "Code is MIT; data tables and run artefacts are CC BY 4.0 (see LICENSE-DATA). The author block is a placeholder and must be replaced with the manuscript author list before upload."
+  ]
 }
