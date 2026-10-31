@@ -53,9 +53,11 @@ are skipped and the output says so.
 
 ## What is deliberately absent
 
-The full counterfactual---re-running the loop against a score without a floor---
-needs the proposer and the API as well as the data, so it is not scripted here.
-It is the one experiment the paper lists as outstanding.
+The counterfactual itself was run and is reported in Section 4.8 of the
+manuscript. `make_floorfree.sh` rebuilds the environment it used (three edits,
+listed in the script), `run_batch.sh` runs the 32 counterfactual runs, and
+`nofloor_analysis.py` produces the comparison with the floored corpus. The
+counterfactual's 128 artefacts ship in `data/nf_runs/`.
 `src/loop/` contains everything needed to run it: point `--accept` and the
 scoring function at a floor-free rule and the same apparatus produces the
 counterfactual trace.
