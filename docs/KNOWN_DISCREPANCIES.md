@@ -1,7 +1,7 @@
 # Discrepancy log
 
 No value printed in the current manuscript differs from what the released tables
-give. `replication/verify_paper_numbers.py` reports **134/134 checks pass** with
+give. `replication/verify_paper_numbers.py` reports **142/142 checks pass** with
 no `diff` rows.
 
 This file is kept because the first submission did differ, at the level of the

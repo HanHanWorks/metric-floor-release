@@ -1,8 +1,9 @@
 # Data released with this repository
 
-Two kinds of data are here: the **artefacts of each run** (`runs/`) and the
-**result tables** built from them (`tables/`). Neither contains metered output
-or issued forecasts — only scores, errors and the code the loop wrote.
+Three kinds of data are here: the **artefacts of each floored run** (`runs/`),
+the **floor-free counterfactual** (`nf_runs/`), and the **result tables** built
+from them (`tables/`). None contains metered output or issued forecasts — only
+scores, errors and the code the loop wrote.
 
 ## `runs/` — 106 runs, 4 files each
 
@@ -113,10 +114,10 @@ repository: `trace_tables.py` does exactly that and prints Table 9.
 ## What is withheld, and why
 
 The metered output series and the issued forecasts. They are the property of the
-dispatching utility and are commercially restricted. The paper's data-availability
-statement offers a de-identified sample on request; nothing in the released
-tables above can be inverted to recover them, since only scores and aggregated
-errors survive.
+dispatching utility, are governed by a data-sharing agreement that does not
+permit redistribution, and are **confidential**; they cannot be released, and no
+de-identified sample is included. Nothing in the released tables above can be
+inverted to recover them, since only scores and aggregated errors survive.
 
 Farm identifiers are the grid's own numeric codes. No names, coordinates or
 owner information are included.

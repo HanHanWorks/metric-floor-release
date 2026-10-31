@@ -1,13 +1,14 @@
 # Scripts that need the restricted series
 
-Three analyses in the paper are specified but not tabulated, because each needs
-the metered and issued-forecast series that are withheld. They are here as
-runnable protocols rather than as prose, so that a reader with access---or an
-auditor---can execute exactly what the paper promises.
+The analyses below need the metered and issued-forecast series, which are
+confidential and not distributed. They are here as runnable protocols so that a
+reader with access can execute exactly what the paper promises. Their reported
+values are in Section 2.3, Equation (3), Table 8, Section 4.7 and Section 4.8
+of the manuscript.
 
 None of the five is covered by CI, because each needs the archive. They were run on
 the compute node for the revision; the numbers they produced are the ones reported
-in Section 2.3, Equation (3), Table 8 and Section 4.7 of the manuscript.
+in the manuscript.
 They compile and import against the released loop code, but their only input is
 the archive. Set `WIND_DATA_ROOT` before using them.
 
@@ -51,11 +52,11 @@ the archive: available power (`farm_id, data_time, available_power`) and monthly
 capacity (`farm_id, month, capability`). Without them the corresponding variants
 are skipped and the output says so.
 
-## What is deliberately absent
+## Floor-free counterfactual
 
-The counterfactual itself was run and is reported in Section 4.8 of the
-manuscript. `make_floorfree.sh` rebuilds the environment it used (three edits,
-listed in the script), `run_batch.sh` runs the 32 counterfactual runs, and
+The counterfactual is reported in Section 4.8 of the manuscript.
+`make_floorfree.sh` rebuilds the environment it used (three edits, listed in the
+script), `run_batch.sh` runs the 32 counterfactual runs, and
 `nofloor_analysis.py` produces the comparison with the floored corpus. The
 counterfactual's 128 artefacts ship in `data/nf_runs/`.
 `src/loop/` contains everything needed to run it: point `--accept` and the

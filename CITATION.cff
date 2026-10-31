@@ -4,11 +4,12 @@ title: "Optimising the metric, not the forecast: code and data release"
 abstract: >-
   Final pipelines, per-iteration traces and farm-level result tables from three
   years of an automated post-processing loop on a provincial Chinese wind fleet
-  (106 runs, 5,360 iterations, 1,202 accepted code edits), with the scripts that
-  reproduce every table and figure of the accompanying manuscript.
+  (106 floored runs, 5,360 iterations, 1,202 accepted code edits), plus the
+  32-run floor-free counterfactual, with the scripts that reproduce every table
+  and figure of the accompanying manuscript.
 type: software
 license: MIT
-repository-code: "https://github.com/REPLACE-WITH-ACCOUNT/metric-floor-release"
+repository-code: "https://github.com/REPLACE-WITH-ACCOUNT/score-not-forecast"
 version: "1.0.0"
 date-released: "2026-10-31"
 

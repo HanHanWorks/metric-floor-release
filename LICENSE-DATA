@@ -18,8 +18,7 @@ This licence covers the run artefacts (final pipelines, per-iteration traces,
 run metadata) and the aggregate result tables — that is, the outputs of the
 study. It does not extend to, and cannot extend to, the underlying metered
 output series and issued forecasts, which are **confidential**: they are the
-property of the dispatching
-utility, are commercially restricted, and are not distributed here.
+property of the dispatching utility and are not distributed here.
 
 The `transform()` functions in `data/runs/code_*.py` were written by a language
 model under the loop's acceptance rule. They are released as research artefacts;

@@ -13,6 +13,7 @@ Usage:
 from __future__ import print_function
 
 import argparse
+import json
 import math
 import os
 import sys
@@ -93,6 +94,21 @@ def main():
     c20 = c20_holdout.compute()
     c21 = c21_regime.compute()
     c22 = c22_dm.compute()
+    nf = json.load(open(os.path.join(REPO, "data", "nf_runs", "nf_summary.json")))
+
+    # --- Section 4.8: floor-free counterfactual ---------------------------
+    c.exact("Section 4.8 floor-free runs", nf["n_nf"], 32, "Section 4.8")
+    c.close("Section 4.8 floor-free gain", nf["nf_gain"], 0.05, "Section 4.8", 0.005)
+    c.close("Section 4.8 floored comparison", nf["floored_gain"], 1.09, "Section 4.8", 0.005)
+    c.close("Section 4.8 re-scored gain", nf["rescored_gain"], 0.13, "Section 4.8", 0.005)
+    c.close("Section 4.8 floor operator NF %",
+            nf["prevalence_nf"]["M05_floor"], 34.4, "Section 4.8", 0.05)
+    c.close("Section 4.8 floor operator floored %",
+            nf["prevalence_floored"]["M05_floor"], 21.9, "Section 4.8", 0.05)
+    c.close("Section 4.8 capacity clipping NF %",
+            nf["prevalence_nf"]["M07_clip_capacity"], 96.9, "Section 4.8", 0.05)
+    c.close("Section 4.8 capacity clipping floored %",
+            nf["prevalence_floored"]["M07_clip_capacity"], 84.4, "Section 4.8", 0.05)
 
     # --- Table 4 ---------------------------------------------------------
     by_year = dict((r["year"], r) for r in t4["by_year"])

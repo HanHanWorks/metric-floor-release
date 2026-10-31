@@ -9,7 +9,7 @@
    the ORCID fields if desired.
 2. **Decide the repository name** and put it in `CITATION.cff`
    (`repository-code`). The name used throughout these files is
-   `metric-floor-release`.
+   `score-not-forecast`.
 3. **Confirm the licence choice.** Code MIT, data CC BY 4.0 is the split assumed
    here; edit `LICENSE`, `LICENSE-DATA` and `.zenodo.json` together if it changes.
 4. **Re-read `docs/KNOWN_DISCREPANCIES.md`** and decide whether to correct items
@@ -19,15 +19,20 @@
 
 ```bash
 cd 13_github
-git init -b main
 git add -A
 git commit -m "Release v1.0.0: artefacts and analysis code"
-git remote add origin git@github.com:<account>/metric-floor-release.git
+git remote add origin git@github.com:<account>/score-not-forecast.git
 git push -u origin main
 ```
 
-Repository size is about 9 MB (479 files), of which 424 are run artefacts. No
-file exceeds 1 MB, so no Git LFS is needed.
+The existing history already contains the 32 floor-free counterfactual runs;
+this is intentional and consistent with Section 4.8 of the manuscript. The
+working tree is about 10 MB (616 tracked files), of which 554 are run artefacts
+(424 floored + 130 floor-free). No file exceeds 1 MB, so no Git LFS is needed.
+
+Before pushing, confirm that the data-availability statement says the metered
+and forecast series are confidential and cannot be released, and that no
+de-identified sample is promised.
 
 ## Zenodo
 
@@ -54,7 +59,7 @@ file exceeds 1 MB, so no Git LFS is needed.
 ```bash
 git clone <the pushed repository> /tmp/check && cd /tmp/check
 python -m pip install -r requirements.txt
-python replication/verify_paper_numbers.py     # expect 134/134, three diff rows
+python replication/verify_paper_numbers.py     # expect 142/142, no diff rows
 make figures                                   # expect five figure pairs
 ```
 
