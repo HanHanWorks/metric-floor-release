@@ -12,7 +12,9 @@
       "affiliation": "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
     }
   ],
-  "license": "MIT",
+  "license": {
+    "id": "MIT"
+  },
   "access_right": "open",
   "language": "eng",
   "version": "1.0.1",
@@ -26,5 +28,12 @@
     "metric exploitation",
     "Goodhart's law",
     "Diebold-Mariano"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isIdenticalTo",
+      "identifier": "https://github.com/HanHanWorks/score-not-forecast",
+      "scheme": "url"
+    }
   ]
 }
