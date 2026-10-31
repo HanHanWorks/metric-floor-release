@@ -10,13 +10,13 @@ abstract: >-
 type: software
 license: MIT
 repository-code: "https://github.com/HanHanWorks/metric-floor-release"
-doi: "10.5281/zenodo.23837559"
+doi: "10.5281/zenodo.23837560"
 version: "1.0.3"
 date-released: "2026-10-31"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.23837560"
-    description: "Version DOI for v1.0.3"
+    value: "10.5281/zenodo.23837559"
+    description: "Concept DOI (all versions)"
 
 authors:
   - family-names: "Huang"
