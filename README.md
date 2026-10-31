@@ -1,6 +1,6 @@
 # Optimising the metric, not the forecast
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23836591.svg)](https://doi.org/10.5281/zenodo.23836591)
+*Zenodo DOI: to be minted for the V1.0.3 release.*
 
 Code and data release for the manuscript *"Optimising the metric, not the
 forecast: how an automated loop exploits a grid-code accuracy score"*.
@@ -106,7 +106,8 @@ floor-free counterfactual runs of Section 4.8.
 ## Citation
 
 See [`CITATION.cff`](CITATION.cff). If you use these data or this code, please
-cite the manuscript and this archive: [10.5281/zenodo.23836591](https://doi.org/10.5281/zenodo.23836591).
+cite the manuscript and this archive. A Zenodo DOI will be minted for the
+V1.0.3 release and added here.
 
 ## Licence
 

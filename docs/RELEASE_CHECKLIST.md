@@ -20,7 +20,7 @@
 ```bash
 cd 13_github
 git add -A
-git commit -m "Release v1.0.0: artefacts and analysis code"
+git commit -m "Release v1.0.3: artefacts and analysis code"
 git remote add origin git@github.com:HanHanWorks/metric-floor-release.git
 git push -u origin main
 ```
@@ -38,7 +38,7 @@ de-identified sample is promised.
 
 1. Log in to Zenodo with GitHub, open *Settings → GitHub*, and flip the switch for
    this repository. Zenodo then archives every GitHub release automatically.
-2. On GitHub, draft a release: tag `v1.0.0`, title "Code and data release v1.0.0",
+2. On GitHub, draft a release: tag `V1.0.3`, title "Code and data release v1.0.3",
    and paste the abstract from `.zenodo.json`.
 3. Publish. Zenodo mints a DOI (concept DOI for all versions, version DOI for this
    one) and adds the badge to the repository.
