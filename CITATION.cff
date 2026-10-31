@@ -10,6 +10,7 @@ abstract: >-
 type: software
 license: MIT
 repository-code: "https://github.com/HanHanWorks/metric-floor-release"
+doi: "10.5281/zenodo.23836591"
 version: "1.0.2"
 date-released: "2026-10-31"
 
