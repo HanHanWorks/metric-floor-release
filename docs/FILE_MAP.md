@@ -17,6 +17,7 @@ manuscript. Nothing in the paper's Results or Methods is outside this table.
 | Table 8 (regime decomposition) | `src/analysis/c21_regime.py` | `data/tables/c21_floor.csv`, `c21_ho.csv` | |
 | Table 9 (mechanism prevalence) | `src/analysis/trace_tables.py` | `data/runs/code_*.py` + `src/loop/p3_ontology.py` | `table9()`; the extractor is the one that labelled the corpus |
 | Table 10 (summary) | — | — | restates Tables 4–9 |
+| Section 4.8 (floor-free counterfactual) | `server/nofloor_analysis.py` | `data/nf_runs/`, produced by `server/run_batch.sh` against the restricted series |
 
 Table numbering follows the compiled manuscript. If the manuscript is
 renumbered, this table is the thing to update.

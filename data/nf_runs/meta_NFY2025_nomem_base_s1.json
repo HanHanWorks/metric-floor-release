@@ -1,0 +1,19 @@
+{
+  "run": "NFY2025_nomem_base_s1",
+  "year": 2025,
+  "memory": 0,
+  "policy": "nomem",
+  "accept": "greedy",
+  "tol": 0.5,
+  "cap": "base",
+  "bestk": 1,
+  "start": null,
+  "end": null,
+  "seed": 1,
+  "n_iter": 60,
+  "acc_first": 87.52774413188853,
+  "acc_last": 87.54216767136145,
+  "n_accept": 4,
+  "n_pure_rediscovery": 3,
+  "wall_sec": 194.5
+}

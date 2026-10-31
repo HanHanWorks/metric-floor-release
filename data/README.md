@@ -21,6 +21,15 @@ Run identifiers: `Y<year>_<arm>_s<seed>`. Arms are `nomem`, `mem`, `full`,
 `none`, `regime` (knowledge-injection policies) and `win_<yymmdd>` (windowed
 campaigns, excluded from every analysis in the paper).
 
+## `nf_runs/` — the floor-free counterfactual
+
+128 artefacts from the 32 counterfactual runs of Section 4.8 (four arms x eight
+seeds, 2025, 60 iterations, denominator = installed capacity): the same four file
+kinds as `runs/`, with tags `NFY2025_<arm>_base_s<seed>`, plus the two summary
+files `nf_summary.json` and `nf_rescored.csv` (each floor-free pipeline re-scored
+under the floored rule). Mean change under the floor-free objective: +0.05 points
+against +1.09 for the floored corpus on the same arms, seeds and farms.
+
 ## `tables/` — result tables
 
 All seven were produced on the compute node that held the restricted series.

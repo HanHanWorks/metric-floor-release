@@ -1,0 +1,36 @@
+{
+  "nf_gain": 0.052797181674827165,
+  "n_nf": 32,
+  "floored_gain": 1.0931214179028366,
+  "n_floored": 32,
+  "rescored_gain": 0.13144432860617505,
+  "n_rescored": 32,
+  "prevalence_nf": {
+    "M01_global_scale": 71.875,
+    "M02_smoothing": 59.375,
+    "M03_median_filter": 25.0,
+    "M04_spike_removal": 28.125,
+    "M05_floor": 34.375,
+    "M06_low_shrink": 37.5,
+    "M07_clip_capacity": 96.875,
+    "M08_ramp_limit": 68.75,
+    "M09_lag_blend": 12.5,
+    "M10_quantile_stretch": 15.625,
+    "M11_calendar_correction": 43.75,
+    "M12_piecewise": 15.625
+  },
+  "prevalence_floored": {
+    "M01_global_scale": 68.75,
+    "M02_smoothing": 68.75,
+    "M03_median_filter": 28.125,
+    "M04_spike_removal": 15.625,
+    "M05_floor": 21.875,
+    "M06_low_shrink": 46.875,
+    "M07_clip_capacity": 84.375,
+    "M08_ramp_limit": 75.0,
+    "M09_lag_blend": 21.875,
+    "M10_quantile_stretch": 12.5,
+    "M11_calendar_correction": 40.625,
+    "M12_piecewise": 15.625
+  }
+}

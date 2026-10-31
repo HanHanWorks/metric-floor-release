@@ -1,0 +1,19 @@
+{
+  "run": "NFY2025_regime_base_s4",
+  "year": 2025,
+  "memory": 0,
+  "policy": "regime",
+  "accept": "greedy",
+  "tol": 0.5,
+  "cap": "base",
+  "bestk": 1,
+  "start": null,
+  "end": null,
+  "seed": 4,
+  "n_iter": 60,
+  "acc_first": 86.15266744489449,
+  "acc_last": 86.1920743362968,
+  "n_accept": 11,
+  "n_pure_rediscovery": 8,
+  "wall_sec": 987.5
+}
