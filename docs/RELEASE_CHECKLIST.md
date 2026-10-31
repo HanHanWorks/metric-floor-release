@@ -2,11 +2,11 @@
 
 ## Before the first push
 
-1. **Fill the author block.** Done for this release: `.zenodo.json` (`creators`)
-   and `CITATION.cff` (`authors`) carry Huang Zihao and Yan Chen with both
-   affiliations, matching the manuscript. What is still missing is the
-   corresponding author's e-mail in `12_latex/manuscript.tex` (marked TODO) and
-   the ORCID fields if desired.
+1. **Fill the author block.** Done: `.zenodo.json` (`creators`) and
+   `CITATION.cff` (`authors`) carry Huang Zihao and Yan Chen with both
+   affiliations, matching the manuscript. The corresponding author's e-mail
+   (`cy@gxu.edu.cn`) is filled in `12_latex/manuscript.tex`; ORCID fields are
+   optional.
 2. **Decide the repository name** and put it in `CITATION.cff`
    (`repository-code`). The name used throughout these files is
    `metric-floor-release`.
