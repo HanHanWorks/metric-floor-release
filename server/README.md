@@ -1,0 +1,56 @@
+# Scripts that need the restricted series
+
+Three analyses in the paper are specified but not tabulated, because each needs
+the metered and issued-forecast series that are withheld. They are here as
+runnable protocols rather than as prose, so that a reader with access---or an
+auditor---can execute exactly what the paper promises.
+
+None of the three was run as part of this release, and none is covered by CI.
+They compile and import against the released loop code, but their only input is
+the archive. Set `WIND_DATA_ROOT` before using them.
+
+| script | answers | output |
+|---|---|---|
+| `decompose_floor.py` | How much of the change in the score is attributable to each region? | `decomp_<year>.csv`, per run × farm: total change, the two contributions, and a check that they sum identically |
+| `reconcile_audit.py` | Which combination of forecast source, power convention and capacity vintage reproduces the operator's annual table? | `recon_<year>.csv`, one row per farm × variant, with the distance from the official value |
+| `blind_search.py` | Can a structure-blind optimiser---one multiplicative constant, chosen by grid or at random---recover the loop's gain? | `blind_<year>.csv`, per run × farm: the best constant, the gain from it, and the gain from a random draw |
+
+## Why the decomposition is not in the paper
+
+Eq. (2) of the manuscript defines region sub-scores and states that they do not
+partition the total: the rule averages a within-day root mean square, so a
+region enters the total nonlinearly. `decompose_floor.py` computes the
+decomposition that *does* partition it, using
+
+    dACC = mean_d(D0_d - D1_d),   D_d = sqrt(w_Fd A_Fd + w_Pd A_Pd)
+
+and, because `x - y = (x^2 - y^2)/(x + y)`,
+
+    c_R = mean_d[ w_Rd (A_R0d - A_R1d) / (D0_d + D1_d) ],   c_F + c_P = dACC
+
+identically. The script prints `max |identity error|`, which should be
+floating-point noise; if it is not, the weights differ between the two versions
+and the comparison is invalid.
+
+## Why the reconciliation is a bound, not an identification
+
+The manuscript reports four farms: two agree with the operator's table to within
+a point, two differ by 21-23 points in opposite directions. It argues that an
+available-power convention, applied in the denominator only, can only *raise* the
+recomputed score, so it can explain at most one of the two. `reconcile_audit.py`
+turns that argument into a test: it crosses every forecast source in the archive
+with three power conventions and two capacity vintages, and names the cell that
+reproduces the official number for each farm.
+
+The script expects two optional files whose column names must be checked against
+the archive: available power (`farm_id, data_time, available_power`) and monthly
+capacity (`farm_id, month, capability`). Without them the corresponding variants
+are skipped and the output says so.
+
+## What is deliberately absent
+
+The full counterfactual---re-running the loop against a score without a floor---
+needs the proposer and the API as well as the data, so it is not scripted here.
+`src/loop/` contains everything needed to run it: point `--accept` and the
+scoring function at a floor-free rule and the same apparatus produces the
+counterfactual trace.

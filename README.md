@@ -28,6 +28,11 @@ The first submission printed three values that the tables do not support, all
 by 0.01. They are corrected in the current manuscript and recorded in
 [`docs/KNOWN_DISCREPANCIES.md`](docs/KNOWN_DISCREPANCIES.md).
 
+Three analyses are specified in the paper but not tabulated, because each needs
+the withheld series: the exact region decomposition, the reconciliation audit,
+and the single-parameter blind search. They ship as runnable protocols in
+[`server/`](server/README.md) rather than as prose.
+
 ## What does not reproduce
 
 The **search itself**. Re-running the loop needs the metered output and the
