@@ -1,14 +1,15 @@
 # Code and data release: auditing a grid-code compliance score
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23837559.svg)](https://doi.org/10.5281/zenodo.23837559)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24271542.svg)](https://doi.org/10.5281/zenodo.24271542)
 
 Code and data release for the manuscript *"When a compliance score rewards the
 wrong adjustment: auditing grid-code forecast assessment in China's wind
-sector"*. The badge resolves to the latest version; the version DOI of v1.0.3 is
-`10.5281/zenodo.23837560`.
+sector"*. The archived release is v1.0.4, DOI `10.5281/zenodo.24271542`.
 
 Three years of an automated post-processing loop on a provincial Chinese wind
-fleet — 106 runs, 5,360 iterations, 1,202 accepted code edits. The loop raised
+fleet — 106 floored runs (5,360 planned iterations, 5,200 executed, 1,202
+accepted code edits), 32 holdout runs and 32 runs with installed capacity as the
+objective denominator: 170 runs in total, of which 138 are released here. The loop raised
 the assessment score by 1.02 points and the gain survived a change of subset, a
 change of site and both holdout designs. Under a loss that does not share the
 score's denominator it did not survive: the score rose while capacity-normalised
@@ -16,7 +17,7 @@ squared error worsened in 64% of runs.
 
 This repository contains the final pipelines the loop produced, the per-iteration
 traces, the farm-level result tables, the 32-run floor-free counterfactual
-reported in Section 4.8, and every script that turns those tables into the
+reported in Section 4.6, and every script that turns those tables into the
 numbers, tables and figures in the paper.
 
 ## Data confidentiality
@@ -110,8 +111,8 @@ floor-free counterfactual runs of Section 4.8.
 See [`CITATION.cff`](CITATION.cff). If you use these data or this code, please
 cite the manuscript and this archive.
 
-- Version DOI (v1.0.3): [10.5281/zenodo.23837560](https://doi.org/10.5281/zenodo.23837560)
-- Concept DOI (all versions): [10.5281/zenodo.23837559](https://doi.org/10.5281/zenodo.23837559)
+- Current release (v1.0.4): [10.5281/zenodo.24271542](https://doi.org/10.5281/zenodo.24271542)
+- Earlier deposit (v1.0.3), superseded: [10.5281/zenodo.23837560](https://doi.org/10.5281/zenodo.23837560)
 
 ## Licence
 
