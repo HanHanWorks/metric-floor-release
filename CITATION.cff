@@ -1,43 +1,50 @@
 cff-version: 1.2.0
 message: "If you use this code or these data, please cite the article and this archive."
-title: "Optimising the metric, not the forecast: code and data release"
+title: "Code and data release for \"When a compliance score rewards the wrong adjustment: auditing grid-code forecast assessment in China's wind sector\""
 abstract: >-
   Final pipelines, per-iteration traces and farm-level result tables from three
   years of an automated post-processing loop on a provincial Chinese wind fleet
-  (106 floored runs, 5,360 iterations, 1,202 accepted code edits), plus the
-  32-run floor-free counterfactual, with the scripts that reproduce every table
-  and figure of the accompanying manuscript.
+  (106 floored runs, 32 holdout runs and 32 runs with installed capacity as the
+  objective denominator; 5,360 planned iterations, 5,200 executed, 1,202 accepted
+  code edits), with the scripts that reproduce every table and figure of the
+  accompanying manuscript. Artefacts for 138 of the 170 runs are included.
 type: software
 license: MIT
 repository-code: "https://github.com/HanHanWorks/metric-floor-release"
-doi: "10.5281/zenodo.23837560"
-version: "1.0.3"
-date-released: "2026-10-31"
+doi: "10.5281/zenodo.23837559"
+version: "1.0.4"
+date-released: "2026-11-16"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.23837559"
-    description: "Concept DOI (all versions)"
+    description: "Concept DOI (resolves to the latest version)"
+  - type: doi
+    value: "10.5281/zenodo.23837560"
+    description: "Version DOI of v1.0.3; v1.0.4 receives a new version DOI"
 
 authors:
   - family-names: "Huang"
     given-names: "Zihao"
+    affiliation: "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
+  - family-names: "Lü"
+    given-names: "Li"
     affiliation: "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
   - family-names: "Chen"
     given-names: "Yan"
     affiliation: "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
 
 keywords:
-  - wind power forecasting
-  - forecast evaluation
-  - accuracy measures
+  - grid-code compliance
+  - incentive regulation
+  - performance targets
+  - forecast verification
+  - wind power
+  - metric design
   - specification gaming
-  - regulatory metrics
-  - metric exploitation
   - Goodhart's law
-  - Diebold-Mariano
 
 references:
   - type: article
-    title: "Optimising the metric, not the forecast: how an automated loop exploits a grid-code accuracy score"
+    title: "When a compliance score rewards the wrong adjustment: auditing grid-code forecast assessment in China's wind sector"
     year: 2026
-    notes: "Manuscript; replace with the published version and DOI when available."
+    notes: "Manuscript submitted to Utilities Policy; replace with the published version and DOI when available."

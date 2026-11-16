@@ -1,10 +1,14 @@
 {
-  "title": "Optimising the metric, not the forecast: code and data release",
+  "title": "Code and data release for \"When a compliance score rewards the wrong adjustment: auditing grid-code forecast assessment in China's wind sector\"",
   "upload_type": "software",
-  "description": "<p>Code and data for the manuscript <i>Optimising the metric, not the forecast: how an automated loop exploits a grid-code accuracy score</i>. Three years of an automated post-processing loop on a provincial Chinese wind fleet: 106 runs, 5,360 iterations, 1,202 accepted code edits. The loop raised the grid-code accuracy score by 1.02 points; the gain survived both holdout designs and transfer outside each pipeline's search set, but not a change of loss (capacity-normalised squared error worsened in 64% of runs). Three experiments locate the cause: an exact decomposition attributes +1.44 of the +0.90-point change to intervals inside the floored region and -0.54 to the rest; a single multiplicative constant gains 4.19 points where the loop gained 1.10; and re-running the loop with the floor removed from the objective collapses its gain to 0.05 points.</p><p>The archive contains the artefacts of all 138 runs (106 floored, 32 floor-free), the result tables behind Tables 2-10, the scripts that produce every printed number and Figures 2-6, a verification script that re-checks 142 printed values, and the search loop itself. The metered output and forecast series are confidential under a data-sharing agreement with the provincial system operator and are not included; no de-identified sample is included and requests for access cannot be granted. Code is released under MIT; result tables and run artefacts are released under CC BY 4.0.</p>",
+  "description": "<p>Code and data for the manuscript <i>When a compliance score rewards the wrong adjustment: auditing grid-code forecast assessment in China's wind sector</i>. The archive documents three years of an automated code-editing loop on a provincial Chinese wind fleet whose only acceptance criterion was the grid-code compliance score: 106 floored runs (5,360 planned iterations, 5,200 executed, 1,202 accepted code edits), 32 holdout runs, and 32 runs with installed capacity as the objective denominator, 170 runs in total. The score rose by 1.02 points; the gain survived both holdout designs and transfer to farms outside each pipeline's search set, but not a change of loss: capacity-normalised squared error and capacity-normalised absolute error both deteriorated on identical predictions.</p><p>Three exercises locate the cause: an exact decomposition attributes +1.44 of the +0.90-point pair-level change to intervals below 20% of installed capacity and -0.54 to the rest; re-running the loop with installed capacity as the objective denominator collapses its gain from 1.09 to 0.05 points; and one multiplicative constant gains 4.19 points where sixty iterations of code search gained 1.10.</p><p>The deposit contains the artefacts of 138 runs (the 106 floored and the 32 capacity-denominator runs), the result tables behind Tables 1-8, the scripts that produce every printed number and Figures 1-5, and a verification script that re-checks 142 printed values. The 32 holdout runs are represented by their split manifest and per-run results.</p><p>The metered output and the issued day-ahead forecast series are confidential under a data-sharing agreement with the provincial system operator and are not included; no de-identified sample is available and requests for access cannot be granted.</p><p>Code is released under the MIT licence; result tables and run artefacts are released under CC BY 4.0.</p>",
   "creators": [
     {
       "name": "Huang, Zihao",
+      "affiliation": "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
+    },
+    {
+      "name": "Lü, Li",
       "affiliation": "Guangxi Key Laboratory of Digital Infrastructure, Guangxi Zhuang Autonomous Region Information Center; School of Computer and Electronic Information, Guangxi University"
     },
     {
@@ -15,17 +19,16 @@
   "license": "mit",
   "access_right": "open",
   "language": "eng",
-  "version": "1.0.3",
-  "publication_date": "2026-10-31",
+  "version": "1.0.4",
   "keywords": [
-    "wind power forecasting",
-    "forecast evaluation",
-    "accuracy measures",
+    "grid-code compliance",
+    "incentive regulation",
+    "performance targets",
+    "forecast verification",
+    "wind power",
+    "metric design",
     "specification gaming",
-    "regulatory metrics",
-    "metric exploitation",
-    "Goodhart's law",
-    "Diebold-Mariano"
+    "Goodhart's law"
   ],
   "related_identifiers": [
     {
